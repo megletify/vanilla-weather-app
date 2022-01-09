@@ -5,10 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="src/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Neuton:ital,wght@0,400;0,700;1,400&family=Work+Sans:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
     <title>Vanilla Weather App</title>
   </head>
   <body>
-    <form id="form">
+    <form class="city-search" id="form">
       <input
         type="search"
         class="search"
@@ -18,20 +21,19 @@
       <button>Search</button>
     </form>
     <h1>
-      <span class="city">Birmingham, AL</span>
+      <span class="city">Birmingham, AL</span><br />
+      <span class="time">Saturday, January 8, 2022 @ 11:51 AM</span>
     </h1>
-    <div class="side">
-      <strong>Humidity:</strong>37%<br />
-      <strong>Wind:</strong>9 mph
-    </div>
-    <div class="center">
-      <h2>Saturday, January 8, 2022 @ 11:51 AM</h2>
-      <br />
-      <span class="temp">50°F/C</span>
-    </div>
-    <div class="side">
-      🌤<br />
-      Partly cloudy
+    <div class="weather">
+      <span id="weather-icon">🌤</span><br />
+      <span class="temp"
+        >50°<span id="farenheit">F</span><span id="celsius">C</span></span
+      ><br />
+      <span id="description">Partly cloudy</span><br /><br><br>
+      <span class="humidity-wind"
+        ><strong>Humidity:</strong> <span id="humidity">50%</span><br />
+        <strong>Wind Speed:</strong> <span id="wind-speed">5 mph</span></span
+      >
     </div>
     <br />
     <br />
@@ -39,11 +41,6 @@
       This project was coded by Megan Burrell and is
       <a href="https://github.com/megletify/vanilla-weather-app"
         >open-sourced on GitHub</a
-      >
-      and
-      <a href="https://distracted-panini-6baf57.netlify.app/"
-        >hosted on Netlify</a
-      >.
     </footer>
     <script src="src/index.js"></script>
   </body>
