@@ -70,6 +70,14 @@ a:active {
   color: #444;
 }
 
+#farenheit {
+  color: #444;
+}
+
+#farenheit:hover {
+  color: #b0e1f8;
+}
+
 footer {
   text-align: center;
   font-size: 11px;

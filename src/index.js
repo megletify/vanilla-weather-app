@@ -24,24 +24,21 @@ function formatDate(timestamp) {
 
 function displayTemperature(response) {
   let temp = document.querySelector("#temp");
-  temp.innerHTML = Math.round(response.data.main.temp);
-
   let city = document.querySelector("#current-city");
-  city.innerHTML = response.data.name;
-
   let description = document.querySelector("#description");
-  description.innerHTML = response.data.weather[0].description;
-
   let humidity = document.querySelector("#humidity");
-  humidity.innerHTML = response.data.main.humidity;
-
   let windSpeed = document.querySelector("#wind-speed");
-  windSpeed.innerHTML = Math.round(response.data.wind.speed);
-
   let date = document.querySelector("#date");
-  date.innerHTML = formatDate(response.data.dt * 1000);
-
   let icon = document.querySelector("#weather-icon");
+
+  farenheitTemperature = response.data.main.temp;
+
+  temp.innerHTML = Math.round(farenheitTemperature);
+  city.innerHTML = response.data.name;
+  description.innerHTML = response.data.weather[0].description;
+  humidity.innerHTML = response.data.main.humidity;
+  windSpeed.innerHTML = Math.round(response.data.wind.speed);
+  date.innerHTML = formatDate(response.data.dt * 1000);
   icon.setAttribute(
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
@@ -61,5 +58,29 @@ function handleSubmit(event) {
   searchCity(cityInput.value);
 }
 
+function showCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temp");
+  let celsiusTemperature = ((farenheitTemperature - 32) * 5) / 9;
+
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+function showFarenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temp");
+  temperatureElement.innerHTML = Math.round(farenheitTemperature);
+}
+
+let farenheitTemperature = null;
+
 let form = document.querySelector("#search-city");
 form.addEventListener("submit", handleSubmit);
+
+let celsiusLink = document.querySelector("#celsius");
+celsiusLink.addEventListener("click", showCelsius);
+
+let farenheitLink = document.querySelector("#farenheit");
+farenheitLink.addEventListener("click", showFarenheit);
+
+searchCity("Birmingham");
