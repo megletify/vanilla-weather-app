@@ -57,6 +57,19 @@ h1 {
   font-size: 18px;
 }
 
+a {
+  text-decoration: none;
+  color: #b0e1f8;
+}
+
+a:hover {
+  color: #444;
+}
+
+a:active {
+  color: #444;
+}
+
 footer {
   text-align: center;
   font-size: 11px;
