@@ -22,6 +22,35 @@ function formatDate(timestamp) {
   return `${month} ${day}, ${year} @ ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecast = document.querySelector("#forecast");
+
+  forecast.innerHTML = `<div class="days">
+        <strong>Jan 9</strong> <br /><img
+          src="#"
+          class="forecast-icon"
+        /><br /><span class="max">50°</span>/<span class="min">30°</span>
+      </div>
+      <div class="days">
+        <strong>Jan 10</strong> <br /><img
+          src="#"
+          class="forecast-icon"
+        /><br /><span class="max">50°</span>/<span class="min">30°</span>
+      </div>
+      <div class="days">
+        <strong>Jan 11</strong> <br /><img src="#" class="forecast-icon" />
+        <br /><span class="max">50°</span>/<span class="min">30°</span>
+      </div>
+      <div class="days">
+        <strong>Jan 12</strong> <br /><img src="#" class="forecast-icon" />
+        <br /><span class="max">50°</span>/<span class="min">30°</span>
+      </div>
+      <div class="days">
+        <strong>Jan 13</strong> <br /><img src="#" class="forecast-icon" />
+        <br /><span class="max">50°</span>/<span class="min">30°</span>
+      </div>`;
+}
+
 function displayTemperature(response) {
   let temp = document.querySelector("#temp");
   let city = document.querySelector("#current-city");
@@ -84,3 +113,4 @@ let farenheitLink = document.querySelector("#farenheit");
 farenheitLink.addEventListener("click", showFarenheit);
 
 searchCity("Birmingham");
+displayForecast();

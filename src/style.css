@@ -4,18 +4,6 @@ body {
   font-family: "Work Sans", sans-serif;
 }
 
-.city-search {
-  text-align: center;
-}
-
-.search {
-  border: 1px solid #b0e1f8;
-  border-radius: 10px;
-  padding: 10px;
-  background-color: #e0ebf0;
-  color: #444;
-}
-
 button {
   border: 1px solid #b0e1f8;
   border-radius: 10px;
@@ -29,6 +17,35 @@ h1 {
   font-family: "Neuton", serif;
 }
 
+a {
+  text-decoration: none;
+  color: #b0e1f8;
+}
+
+a:hover {
+  color: #444;
+}
+
+a:active {
+  color: #444;
+}
+
+footer {
+  text-align: center;
+  font-size: 11px;
+}
+
+.city-search {
+  text-align: center;
+}
+
+.search {
+  border: 1px solid #b0e1f8;
+  border-radius: 10px;
+  padding: 10px;
+  background-color: #e0ebf0;
+  color: #444;
+}
 .weather {
   text-align: center;
   border: 1px solid #b0e1f8;
@@ -66,19 +83,6 @@ h1 {
   font-size: 18px;
 }
 
-a {
-  text-decoration: none;
-  color: #b0e1f8;
-}
-
-a:hover {
-  color: #444;
-}
-
-a:active {
-  color: #444;
-}
-
 #farenheit {
   color: #444;
 }
@@ -87,17 +91,19 @@ a:active {
   color: #b0e1f8;
 }
 
-footer {
-  text-align: center;
-  font-size: 11px;
-}
-
 .days {
   display: inline-block;
   border: 1px solid #b0e1f8;
   border-radius: 50%;
-  padding: 30px 25px;
+  width: 150px;
+  height: 130px;
   margin: 0 10px;
+  padding-top: 20px;
+}
+
+.days strong {
+  font-family: "Neuton", serif;
+  font-size: 20px;
 }
 
 .forecast {
@@ -107,4 +113,8 @@ footer {
 .forecast-icon {
   width: 50px;
   height: 50px;
+}
+
+.min {
+  color: #999;
 }
