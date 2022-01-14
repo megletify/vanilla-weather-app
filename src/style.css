@@ -101,9 +101,10 @@ footer {
   padding-top: 20px;
 }
 
-.days strong {
+.forecast-date {
   font-family: "Neuton", serif;
   font-size: 20px;
+  font-weight: bold;
 }
 
 .forecast {

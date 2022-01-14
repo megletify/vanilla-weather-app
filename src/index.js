@@ -27,59 +27,28 @@ function formatDate(timestamp) {
 function displayForecast() {
   let forecast = document.querySelector("#forecast");
 
-  forecast.innerHTML = `<div class="days">
-        <strong class="forecast-date">Jan 9</strong> <br /><img
-          src="#"
-          class="forecast-icon"
-        /><br /><span class="max">50°</span>/<span class="min">30°</span>
-      </div>
+  let forecastHTML = "";
+  let days = ["Jan 9", "Jan 10", "Jan 11", "Jan 12", "Jan 13"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
       <div class="days">
-        <strong class="forecast-date">Jan 10</strong> <br /><img
-          src="#"
-          class="forecast-icon" 
-        /><br /><span class="max">50°</span>/<span class="min">30°</span>
+        <div class="forecast-date">${day}</div>
+        <img src="http://openweathermap.org/img/wn/10d@2x.png" class="forecast-icon" />
+        <div class="forecast-temp">
+          <span class="max">50°</span>/<span class="min">30°</span>
+        </div>
       </div>
-      <div class="days">
-        <strong class="forecast-date">Jan 11</strong> <br /><img src="#" class="forecast-icon" />
-        <br /><span class="max">50°</span>/<span class="min">30°</span>
-      </div>
-      <div class="days">
-        <strong class="forecast-date">Jan 12</strong> <br /><img src="#" class="forecast-icon" />
-        <br /><span class="max">50°</span>/<span class="min">30°</span>
-      </div>
-      <div class="days">
-        <strong class="forecast-date">Jan 13</strong> <br /><img src="#" class="forecast-icon" />
-        <br /><span class="max">50°</span>/<span class="min">30°</span>
-      </div>`;
-  let date = formatDate();
-  let months = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "April",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sept",
-    "Oct",
-    "Nov",
-    "Dec",
-  ];
-  let month = months[date.getMonth()];
-  let day = date.getDate();
-  let forecastDate = document.querySelectorAll(".forecast-date");
-  forecastDate.innerHTML = `${month} ${day}`;
-  let forecastIcon = document.querySelectorAll(".forecast-icon");
-  forecastIcon.setAttribute(
-    "src",
-    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
-  );
+      `;
+  });
+
+  forecast.innerHTML = forecastHTML;
 }
 
 function getForecast(coordinates) {
   let apiKey = "f6ac59a63eb6c11f9c97a0f9c5fb1033";
-  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}unit=imperial`;
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=imperial`;
   axios.get(apiUrl).then(displayForecast);
 }
 
