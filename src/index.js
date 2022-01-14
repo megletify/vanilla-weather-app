@@ -2,7 +2,7 @@
 function formatDate(timestamp) {
   let date = new Date(timestamp);
   let hours = (timestamp = date.getHours());
-  let minutes = date.getMinutes();
+  let minutes = (date.getMinutes() < 10 ? "0" : "") + date.getMinutes();
   let months = [
     "January",
     "February",
@@ -20,6 +20,7 @@ function formatDate(timestamp) {
   let month = months[date.getMonth()];
   let day = date.getDate();
   let year = date.getFullYear();
+  console.log((date.getMinutes() < 10 ? "0" : "") + date.getMinutes());
   return `${month} ${day}, ${year} @ ${hours}:${minutes}`;
 }
 
